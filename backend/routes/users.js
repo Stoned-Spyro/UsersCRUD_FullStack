@@ -31,7 +31,7 @@ userRouter.post('/users/addUser', (req, res) => {
     }
     else{
         let currentUsersList = fileUtils.getUsersFromFile();
-        const newId = currentUsersList[currentUsersList.length - 1].id + 1
+        const newId = currentUsersList.length > 0 ? currentUsersList[currentUsersList.length - 1].id + 1 : 1
         const newUser = {
             id: newId,
             login: req.body.login,
