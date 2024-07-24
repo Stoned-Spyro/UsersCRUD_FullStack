@@ -23,20 +23,6 @@
               This is the default body!
             </slot>
           </section>
-  
-          <footer class="modal-footer">
-            <slot name="footer">
-              This is the default footer!
-            </slot>
-            <button
-              type="button"
-              class="btn-green"
-              @click="close"
-              aria-label="Close modal"
-            >
-              Close me!
-            </button>
-          </footer>
         </div>
       </div>
     </transition>
@@ -74,48 +60,19 @@
     display: flex;
     flex-direction: column;
   }
-
-  .modal-header,
-  .modal-footer {
-    padding: 15px;
-    display: flex;
-  }
-
+  
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
     color: #4AAE9B;
     justify-content: space-between;
-  }
-
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    flex-direction: column;
+    padding: 15px;
+    display: flex;
   }
 
   .modal-body {
     position: relative;
     padding: 20px 10px;
-  }
-
-  .btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
-
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
   }
 
   .modal-fade-enter,
