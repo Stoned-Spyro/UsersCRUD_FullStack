@@ -1,5 +1,9 @@
 # Backend
-For start project run
+##Project setup
+```
+npm install
+```
+##Run server
 ```
 npm start
 ```
