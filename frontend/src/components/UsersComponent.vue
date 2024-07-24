@@ -30,10 +30,30 @@
           <td class="btn-cell">
             <button
               class="user-table-btn delete-btn"
-              @click="deleteUser(user.id)"
+              @click="showModal('delete-user')"
             >
               Delete User
             </button>
+          </td>
+          <td class="hidden-col">
+            <modal-component
+              v-if="currentShownModal === 'delete-user'"
+              @close="closeModal"
+            >
+              <template #header>
+                <div class="delete-header">Are You Sure?</div>
+              </template>
+              <template #body>
+                <div class="delete-footer">
+                  <button @click="deleteUser(user.id)" class="btn confirm-btn">
+                    Yes
+                  </button>
+                  <button @click="closeModal" class="btn dismiss-btn">
+                    No
+                  </button>
+                </div>
+              </template>
+            </modal-component>
           </td>
         </tr>
       </tbody>
@@ -106,6 +126,7 @@ export default {
       UserApiService.delete(userId)
         .then(() => {
           this.retrieveUsers();
+          this.closeModal();
         })
         .catch((err) => {
           console.error(err);
@@ -198,5 +219,35 @@ export default {
 }
 .btn-cell {
   width: 100px;
+}
+.btn {
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+}
+.confirm-btn {
+  background-color: rgb(53, 206, 53);
+}
+.confirm-btn:hover {
+  background-color: green;
+  color: white;
+}
+.dismiss-btn {
+  background-color: rgb(236, 236, 125);
+}
+.dismiss-btn:hover {
+  background-color: rgb(163, 163, 0);
+  color: white;
+}
+.delete-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.delete-header {
+  margin: 0 auto;
+}
+td.hidden-col {
+  width: 0;
+  padding: 0;
 }
 </style>
