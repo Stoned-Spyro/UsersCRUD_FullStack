@@ -28,7 +28,6 @@
   </div>
 </template>
 <script>
-/* eslint-disable */
 import userApiService from "../services/userApiService";
 import UserApiService from "../services/userApiService";
 
@@ -140,6 +139,7 @@ export default {
   border-radius: 6px;
   border: solid 1px;
   padding-left: 4px;
+  height: 25px;
 }
 .form-field > label {
   margin-bottom: 4px;
